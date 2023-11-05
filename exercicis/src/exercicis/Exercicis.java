@@ -14,52 +14,44 @@ import java.lang.Math;
 public class Exercicis {
 
     private static void menu() {
-        System.out.println("Tria una opció:");
+        System.out.println("\nTria una opció:");
 
         System.out.println("\nAqui comencen els exercicis de l'Unitat 1\n");
         System.out.println("En aquesta unitat només feim servir operadors ternaris");
-        System.out.println("1. Calcula l'iva d'un producte i el preu final");
-        System.out.println("2. Mirar si dos nombres són iguals");
-        System.out.println("3. Calcula l'àrea d'un triangle");
-        System.out.println("4. Càlcula el valor de y quan y = ax² + bx + c");
-        System.out.println("5. Calcula la longitud total de tres mides en centímetres");
-        System.out.println("6. Calcula el valor de les entrades de un teatre");
-        System.out.println("7. Mostra un nombre de segons en hores, minuts i segons");
+
+        System.out.println("Aquests són els exercicis de clase");
+        System.out.println("1. Calcula la mitjana de dues notes");
+        System.out.println("2. Mirar si es major d'edat");
+        System.out.println("3. Mira si un nombre és parell");
+        System.out.println("4. Mostra si es pot sortir al pati");
+
+        System.out.println("Aquests són els exercicis voluntaris");
+        System.out.println("5. Calcula l'iva d'un producte i el preu final");
+        System.out.println("6. Mirar si dos nombres són iguals");
+        System.out.println("7. Calcula l'àrea d'un triangle");
+        System.out.println("8. Càlcula el valor de y quan y = ax² + bx + c");
+        System.out.println("9. Calcula la longitud total de tres mides en centímetres");
+        System.out.println("10. Calcula el valor de les entrades de un teatre");
+        System.out.println("11. Mostra un nombre de segons en hores, minuts i segons");
 
         System.out.println("\nAqui comencen els exercicis de l'Unitat 2\n");
+
         System.out.println("Aquests són els exercicis de classe");
-        System.out.println("En aquesta unitat utilitzam \033[3mif\033[0m i \033[3mswitch\033[0m");
-        System.out.println("8. Mira si un nombre és parell o no");
-        System.out.println("9. Mira quin de dos nombres és major");
-        System.out.println("10. Introdueïx un nombre decimal i mira si es quasi zero, és a dir, que sigui estigui comprès"
+        System.out.println("En aquesta unitat utilitzam if i switch");
+        System.out.println("12. Mira si un nombre és parell o no");
+        System.out.println("13. Mira quin de dos nombres és major");
+        System.out.println("14. Introdueïx un nombre decimal i mira si es quasi zero, és a dir, que sigui estigui comprès"
                 + " entre -1 i 1 sense incloure'ls");
-        System.out.println("11. Introdueix dos nombre i mostre'ls en ordre");
-        System.out.println("12. Mira quina nota tens");
-        System.out.println("13. Mira quin dia de la setmana és");
-        System.out.println("14. Mira si la data és correcta");
-        System.out.println("15. Mira quin moment és un segon més tard");
+        System.out.println("15. Introdueix dos nombre i mostre'ls en ordre (Operadors ternaris)");
+        System.out.println("16. Mira quina nota tens");
+        System.out.println("17. Mira quin dia de la setmana és");
+        System.out.println("18. Mira si la data és correcta");
+        System.out.println("19. Mira quin moment és, un segon més tard");
 
         System.out.println("\n0. Surt de l'aplicació");
     }
 
-    private static void calculIva(float preu, float iva) {
-
-        float preufinal, ivafinal;
-
-        ivafinal = (preu * iva) / 100;
-        preufinal = preu + ivafinal;
-
-        System.out.println("El valor final de l'IVA és " + ivafinal);
-        System.out.println("El preu final és " + preufinal);
-
-    }
-
-    private static void calculararea(int base, int altura) {
-
-        float area = (float) (base * altura) / 2;
-        System.out.println("L'àrea del triangle és " + area);
-
-    }
+   
 
     /**
      * @param args the command line arguments
@@ -82,15 +74,75 @@ public class Exercicis {
             switch (opcio) {
 
                 case 1:
+                    System.out.println("Has triat calcular la mitjana de dues notes");
+                    System.out.println("Introdueix la primera nota");
+                    int nota1 = sc.nextInt();
+                    System.out.println("Introdueix la segona nota");
+                    int nota2 = sc.nextInt();
+                    float notamitja = (float) (nota1 + nota2) / 2;
+                    System.out.println("La nota mitja és " + notamitja);
+
+                    break;
+
+                case 2:
+
+                    System.out.println("Has triat mirar si és major d'edat");
+                    System.out.println("Introdueix la teva edat");
+                    int edat2 = sc.nextInt();
+                    boolean majoredat = edat2 >= 18;
+                    System.out.println("És major d'edat? " + majoredat);
+
+                    break;
+
+                case 3:
+
+                    System.out.println("Has triat mirar si un nombre és parell");
+                    System.out.println("Introdueix el nombre");
+                    int nombre = sc.nextInt();
+                    boolean esparell = (nombre % 2) == 0;
+                    System.out.println("És el nombre parell? " + esparell);
+
+                    break;
+
+                case 4:
+
+                    System.out.println("Has triat mirar si es pot sortir al pati");
+                    boolean acabatact,
+                     acabatclasse,
+                     alarmainc;
+
+                    String sortir;
+                            
+                    System.out.println("Has acabat l'activitat?");
+                    acabatact = sc.nextBoolean();
+                    System.out.println("S'ha acabat la classe?");
+                    acabatclasse = sc.nextBoolean();
+                    System.out.println("Sona l'alarma d'incendis?");
+                    alarmainc = sc.nextBoolean();
+
+                    sortir = (alarmainc || (acabatact && acabatclasse)) ? "Pots sortir al pati" : "No pots sortir al pati";
+
+                    System.out.println( sortir);
+
+                    break;
+
+                case 5:
                     System.out.println("Has triat calcular l'IVA");
                     System.out.println("Introdueïx el valor del producte");
                     float preu = sc.nextFloat();
                     System.out.println("Introdueïx el % d'IVA");
                     float iva = sc.nextFloat();
-                    calculIva(preu, iva);
+                    float preufinal,
+                     ivafinal;
+
+                    ivafinal = (preu * iva) / 100;
+                    preufinal = preu + ivafinal;
+
+                    System.out.println("El valor final de l'IVA és " + ivafinal);
+                    System.out.println("El preu final és " + preufinal);
                     break;
 
-                case 2:
+                case 6:
                     System.out.println("Has triat mirar si dos nombre són iguals");
                     System.out.println("Introdueïx el primer nombre");
                     int valor1 = sc.nextInt();
@@ -100,16 +152,17 @@ public class Exercicis {
                     System.out.println(iguals);
                     break;
 
-                case 3:
+                case 7:
                     System.out.println("Has triat calcular l'àrea d'un triangle");
                     System.out.println("Introdueïx el valor de la base");
                     int base = sc.nextInt();
                     System.out.println("Introdueïx l'altura");
                     int altura = sc.nextInt();
-                    calculararea(base, altura);
+                    float area = (float) (base * altura) / 2;
+                    System.out.println("L'àrea del triangle és " + area);
                     break;
 
-                case 4:
+                case 8:
                     System.out.println("Ha triat calcular el valor de y");
                     System.out.println("Introdueïx el valor de a");
                     int a = sc.nextInt();
@@ -125,7 +178,7 @@ public class Exercicis {
                     System.out.println("El valor de y és " + y);
                     break;
 
-                case 5:
+                case 9:
 
                     System.out.println("Ha triat calcular una distància en cm");
                     System.out.println("Indiqui la primera distància en milímetres");
@@ -138,7 +191,7 @@ public class Exercicis {
                     System.out.println("La distància final és " + distancia + "cm");
                     break;
 
-                case 6:
+                case 10:
                     System.out.println("Ha decidit calcular el preu d'unes entrades");
                     System.out.println("El preu de les entrades adultes és de 18€");
                     System.out.println("El preu de les entrades infantils és de 12€");
@@ -156,7 +209,7 @@ public class Exercicis {
 
                     break;
 
-                case 7:
+                case 11:
                     System.out.println("Ha decidit convertir segons en hores, minuts i segons");
                     System.out.println("Introdueïxi el nombre de segons");
                     int segons = sc.nextInt();
@@ -171,7 +224,7 @@ public class Exercicis {
                     break;
 
                 //Aquí comencen els exercicis de la segona unitat
-                case 8:
+                case 12:
                     System.out.println("Has triat mirar si un nombre és parell");
                     System.out.println("Introdueix el nombre per mirar si és parell");
                     int nombreparell = sc.nextInt();
@@ -184,7 +237,8 @@ public class Exercicis {
                         System.out.println("El nombre no és parell");
                     }
                     break;
-                case 9:
+
+                case 13:
                     System.out.println("Has triat mirar quin és el major de dos nombres");
                     System.out.println("Introdueix el primer nombre");
                     int nombre1 = sc.nextInt();
@@ -198,7 +252,8 @@ public class Exercicis {
                         System.out.println("El segon nombre és major");
                     }
                     break;
-                case 10:
+
+                case 14:
 
                     System.out.println("Has triat mirar si un valor és quasizero");
                     System.out.println("Per favor introdueix el valor");
@@ -213,7 +268,7 @@ public class Exercicis {
 
                     break;
 
-                case 11:
+                case 15:
 
                     System.out.println("Has triat ordenar dos valors");
                     System.out.println("Introdueïx el primer valor");
@@ -225,7 +280,7 @@ public class Exercicis {
                     System.out.println(sortida);
                     break;
 
-                case 12:
+                case 16:
 
                     System.out.println("Has triat mirar quina nota tens");
                     System.out.println("Introdueix la teva nota");
@@ -260,7 +315,7 @@ public class Exercicis {
 
                     break;
 
-                case 13:
+                case 17:
                     System.out.println("Has triat mirar quin dia de la setmana és");
                     System.out.println("Introdueix el dia de la setmana");
 
@@ -288,7 +343,7 @@ public class Exercicis {
 
                     break;
 
-                case 14:
+                case 18:
                     System.out.println("Has triat mirar si una data és correcta");
                     System.out.println("Introdueix el dia");
                     int diadata = sc.nextInt();
@@ -331,7 +386,7 @@ public class Exercicis {
 
                     break;
 
-                case 15:
+                case 19:
                     System.out.println("Has triat mirar quina hora és un segon més tard");
 
                     System.out.println("Introdueix l'hora");
@@ -362,6 +417,7 @@ public class Exercicis {
                     }
 
                     break;
+
                 case 0:
                     System.out.println("Ha triat sortir de l'aplicació.");
                     end = true;
