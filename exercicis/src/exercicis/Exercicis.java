@@ -62,10 +62,18 @@ public class Exercicis {
         System.out.println("28. Apren a comptar");
         
         
+        System.out.println("\nExercicis voluntaris unitat 3");
+        System.out.println("34. Incrementar la hora n segons");
+        System.out.println("35. Calcular els nombres primers entre 1 i n");
+        System.out.println("36. Cerca el MCD de dos nombres");
+        System.out.println("37. Cerca el MCM de dos nombres");
+        System.out.println("38. Calcula l'arrel quadrada d'un nombre sense Math.sqrt()");
+        System.out.println("39. Converteix un nombre decimal en binari");
+        
         System.out.println("\nAquí comença el bloc 4 (Funcions)");
-        System.out.println("34. Mostra ECO n vegades");
-        System.out.println("35. Mostra de major a menor tots els nombres entre dos nombres");
-        System.out.println("36. Calcular l'àrea o el volum d'un cilindre");
+        System.out.println("40. Mostra ECO n vegades");
+        System.out.println("41. Mostra de major a menor tots els nombres entre dos nombres");
+        System.out.println("42. Calcular l'àrea o el volum d'un cilindre");
         
         System.out.println("\n0. Surt de l'aplicació");
         
@@ -834,8 +842,198 @@ public class Exercicis {
                     }
 
                     break;
-
+                  
                 case 34:
+                    
+                    //com són exercicis de loops, ho farem amb un llaç for, incrementant els segons, i modificant
+                    // els segons, minuts i hores en cas de que sigui necessari
+                    
+                    
+                    
+                    System.out.println("Has triat aumentar l'hora n segons");
+                    
+                    
+                    System.out.println("Introdueix l'hora");
+                    int hora34 = sc.nextInt();
+                    System.out.println("Introdueix els minuts");
+                    int minuts34=sc.nextInt();
+                    System.out.println("Introdueix els segons");
+                    int segons34 = sc.nextInt();
+                    
+                    System.out.println("Introdueix els segons a incrementar");
+                    int segonsincr34 = sc.nextInt();
+                    
+                    for (int i=0; i<segonsincr34; i++){
+                        
+                        segons34++;
+                        if (segons34 == 60){
+                            
+                            segons34=0;
+                            minuts34++;
+                            if (minuts34==60){
+                                
+                                minuts34=0;
+                                hora34++;
+                                if (hora34==24){
+                                    hora34=0;
+                                    
+                                }
+                            }
+                            
+                        }
+                     
+                        
+                    }
+                    
+                    System.out.println("La nova hora és "+hora34+":"+minuts34+":"+segons34);
+                    
+                    break;
+                    
+                case 35:
+                    
+                    
+                    //Per mirar si un nombre és primer, cercam es seu modul (%) entre tots els 
+                    //seus anteriors fins 1 (no inclós), si colque mòdul dona 0, llavors no és primer
+
+                    
+                    System.out.println("Has triat calcular el nombre de nombres primers entre 1 i n (n inclós)");
+                    System.out.println("Introdueix el valor de n");
+                    int nombreprimer35 = sc.nextInt();
+                    int totalnombresprimers = 0;
+                    
+                    boolean esprimer = true;
+                    
+                    for (int i = nombreprimer35; i > 0; i--){
+                        
+                        for (int j = i-1; j > 1; j--){
+                            
+                            if (i%j == 0){
+                                esprimer=false;
+                                break;
+                            }
+
+                        }
+                        
+                        if (esprimer){
+                            
+                            totalnombresprimers++;
+                        } else {
+                            esprimer=true;
+                        }
+                        
+                    }
+
+                    System.out.println("El total de nombres primers entre 1 i "+ nombreprimer35 + " és de "+totalnombresprimers);
+
+                    break;
+                    
+                case 36:
+                    
+                    //Per cercar el mcd de dos nombres, cercam el menor de tot dos, i llavors, desde aquest nombre fins 1,
+                    //miram es mòdul amb els dos nombres inicials, si és modul és 0, llavors és el mcd
+                    //En el pitjor dels caso el mcd serà 1
+                    
+                    System.out.println("Has triat cercar el MCD de dos nombres");
+                    System.out.println("Introdueix el primer nombre");
+                    int valor136 = sc.nextInt();
+                    System.out.println("Introdueix el segon nombre");
+                    int valor236 = sc.nextInt();
+                    
+                    int menor = valor136 >= valor236 ? valor236 : valor136;
+                    
+                    int mcd = 1;
+                    
+                    for (int i = menor; i>=1; i--){
+                        
+                        if (valor136%i==0 && valor236%i==0){
+                            
+                            mcd= i;
+                            break;
+                        }
+                        
+                    }
+
+                    System.out.println("El MCD de "+ valor136 + " i " + valor236 + " és " + mcd);
+                    
+                    break;
+                    
+                case 37:
+                    
+                    //Per el mcm, és lo mateix que el cas anterior pero cap adalt, cercam el major i miram modul %
+                    //en el pitjor dels casos el mcm és valor1 * valor2
+                    
+                    System.out.println("Has triat cercar el MCM de dos nombres");
+                    System.out.println("Introdueix el primer nombre");
+                    int valor137 = sc.nextInt();
+                    System.out.println("Introdueix el segon nombre");
+                    int valor237 = sc.nextInt();
+                    
+                    int major = valor137 >= valor237 ? valor137 : valor237;
+                    int mcm = 0;
+                    
+                    for (int i = major; ; i++){
+                        
+                        if (i%valor137==0 && i%valor237==0){
+                            
+                            mcm = i;
+                            
+                            break;
+                        }
+                        
+                    }
+
+                    System.out.println("El MCM de "+ valor137 + " i " + valor237 + " és " + mcm);
+                    
+                    
+                    break;
+                    
+                case 38:
+                    
+                    //Per calcular l'àrrel quadrada d'un nombre sense Math.sqrt(), ho feim per aproximació
+                    //cercam els quadrats de tots els valors fins que ens passem, llavors feim la resta per aproximarnos
+                    
+                    
+                    System.out.println("Has triat cercar l'arrel quadrada d'un nombre per aproximació, sense Math.sqrt()");
+                    System.out.println("Introdueix el valor del que vols sebre l'arrel quadrada");
+                    int arrel = sc.nextInt();
+                    
+                    int i38=1;
+                    for (; i38*i38<=arrel;i38++){
+                    }
+                    
+                    i38--;
+                    
+                    System.out.println("El valor de l'arrel quadrada de " + arrel + " és " + i38 + " amb un resta de " + (arrel - i38*i38));
+                    
+                    break;
+                    
+                case 39:
+                    
+                    //Podriem fer-ho amb binari39%2 i mostrant bit per bit per pantalla, pero si ho feim
+                    //d'aquella manera, el nombre en binari apareixeria girat, aixi que ho feim aixi, fent que un nombre
+                    //en decimal, estiguis només compost per 0s i 1s per a que pareixqui que és un nombre en binari
+                    
+                    System.out.println("Has triat convertir un nombre decimal en binari");
+                    
+                    System.out.println("Introdueix el nombre en decimal");
+                    
+                    int decimal39 = sc.nextInt();
+                    int binari39=0;
+                    int index39=0;
+                    
+                    while (decimal39!=1){
+                        binari39+=(decimal39%2)*Math.pow(10, index39);
+                        decimal39/=2;
+                        index39++;
+                    }
+                    
+                    binari39+=Math.pow(10, index39);
+                    
+                    System.out.println(binari39);
+                    
+                    break;
+                    
+                case 40:
 
                     System.out.println("Has triat introduïr el valor Eco n vegades");
 
@@ -851,7 +1049,7 @@ public class Exercicis {
 
                     break;
 
-                case 35:
+                case 41:
 
                     System.out.println("Has triat mostrar tots els nombres entre dos sencers de major a menor");
                     System.out.println("Introdueix el primer nombre");
@@ -863,7 +1061,7 @@ public class Exercicis {
 
                     break;
 
-                case 36:
+                case 42:
 
                     System.out.println("Has triat calcular l'àrea o el volum d'un cilindre");
 
