@@ -25,7 +25,7 @@ public class Exercicis {
         System.out.println("3. Mira si un nombre és parell");
         System.out.println("4. Mostra si es pot sortir al pati");
 
-        System.out.println("Aquests són els exercicis voluntaris");
+        System.out.println("\nAquests són els exercicis voluntaris de l'unitat 1");
         System.out.println("5. Calcula l'iva d'un producte i el preu final");
         System.out.println("6. Mirar si dos nombres són iguals");
         System.out.println("7. Calcula l'àrea d'un triangle");
@@ -48,10 +48,80 @@ public class Exercicis {
         System.out.println("18. Mira si la data és correcta");
         System.out.println("19. Mira quin moment és, un segon més tard");
 
+        System.out.println("\nExercicis voluntaris unitat 2");
+        System.out.println("20. Calcula l'àrea d'un triangle, comprobant que no s'han introduït valors negatius");
+        System.out.println("21. Calcula el valor absolut d'un nombre amb operadors ternaris");
+        System.out.println("22. Calcula si hi suficient pinso pels animals");
+        System.out.println("23. Mostra la lletra del DNI");
+        System.out.println("24. Mira si un nombre és capicua");
+
+        System.out.println("\nAquí comença l'unitat 3 (Loops)");
+        System.out.println("25. Mira si és parell, positiu i el seu quadrat");
+        System.out.println("26. Mira l¡edat total, edat mitja, nombre d'alumnes i nombre d'alumnes adults");
+        System.out.println("27. Joc del nombre secret");
+        System.out.println("28. Apren a comptar");
+        
+        
+        System.out.println("\nAquí comença el bloc 4 (Funcions)");
+        System.out.println("34. Mostra ECO n vegades");
+        System.out.println("35. Mostra de major a menor tots els nombres entre dos nombres");
+        System.out.println("36. Calcular l'àrea o el volum d'un cilindre");
+        
         System.out.println("\n0. Surt de l'aplicació");
+        
+        
     }
 
-   
+    private static void eco() {
+
+        System.out.println("Eco");
+
+    }
+
+    private static void ordenarnombres(int valor1, int valor2) {
+
+        int major, menor;
+
+        if (valor1 >= valor2) {
+            major = valor1;
+            menor = valor2;
+
+        } else {
+
+            major = valor2;
+            menor = valor1;
+
+        }
+
+        for (int i = major; i >= menor; i--) {
+
+            System.out.println(i);
+
+        }
+
+    }
+
+    private static void calcular(int radi, int altura, int opcio) {
+
+        switch (opcio) {
+
+            case 1:
+                System.out.println("Has triat calcular l'àrea del cilindre");
+                System.out.println("L'àrea del cilindre és " + (2 * Math.PI * radi * (radi + altura)));
+                break;
+
+            case 2:
+                System.out.println("Has triat calcular el volum d'un cilindre");
+                System.out.println("El volum del cilindre és " + (Math.PI * radi * radi * altura));
+                break;
+
+            default:
+
+                System.out.println("Opció no vàlida");
+
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -112,7 +182,7 @@ public class Exercicis {
                      alarmainc;
 
                     String sortir;
-                            
+
                     System.out.println("Has acabat l'activitat?");
                     acabatact = sc.nextBoolean();
                     System.out.println("S'ha acabat la classe?");
@@ -122,7 +192,7 @@ public class Exercicis {
 
                     sortir = (alarmainc || (acabatact && acabatclasse)) ? "Pots sortir al pati" : "No pots sortir al pati";
 
-                    System.out.println( sortir);
+                    System.out.println(sortir);
 
                     break;
 
@@ -416,6 +486,403 @@ public class Exercicis {
                         System.out.println("L'hora ingresada és incorrecta");
                     }
 
+                    break;
+
+                case 20:
+                    System.out.println("Has triat calcular l'àrea d'un triangle mirant si els valors d'entrada "
+                            + "no siguin negatius");
+
+                    System.out.println("Introdueix el valor de la base");
+
+                    float base20 = sc.nextFloat();
+                    System.out.println("Introdueix el valor de l'altura");
+                    float altura20 = sc.nextFloat();
+
+                    if (altura20 > 0 && base20 > 0) {
+
+                        System.out.println("El valor de l'àrea és " + (altura20 * base20 / 2));
+                    } else {
+                        System.out.println("Un dels valors insertats és incorrecte");
+
+                    }
+
+                    break;
+
+                case 21:
+
+                    System.out.println("Heu triat calcular el valor absolut d’un nombre");
+                    System.out.println("Introdui el nombre");
+
+                    int nombre21 = sc.nextInt();
+                    int valorabsolut = nombre21 > 0 ? nombre21 : -nombre21;
+
+                    System.out.println("El valor absolut de " + nombre21 + " és " + valorabsolut);
+
+                    break;
+                case 22:
+
+                    System.out.println("Heu triat calcular si hi ha prou pinso en es magatzem per alimentar els animals");
+
+                    System.out.println("Introdui els kilos de pinso que hi ha en es magatzem");
+                    float pinso = sc.nextFloat();
+                    System.out.println("Introdui el nombre d'animals");
+                    int animals = sc.nextInt();
+                    System.out.println("Introdui el nombre de kilos de pinso per animal");
+                    int pinsoanimal = sc.nextInt();
+
+                    if (animals > 0) {
+
+                        pinso /= (float) animals;
+
+                        if (pinso >= pinsoanimal) {
+                            System.out.println("Hi ha suficient menjar per cada animal");
+
+                        } else {
+                            System.out.println("Només hi ha disponibles " + pinso + "Kg de pinso per animal");
+                        }
+
+                    } else {
+
+                        System.out.println("No hi ha animals, així que no els hem d'alimentar");
+                    }
+
+                    break;
+
+                case 23:
+
+                    System.out.println("Heu triat calcular la lletra del DNI");
+                    System.out.println("Introdui el nombre de DNI");
+
+                    int dni = sc.nextInt();
+                    int lletra = dni % 23;
+                    char lletradni = '0';
+
+                    switch (lletra) {
+
+                        case 0 ->
+                            lletradni = 'T';
+                        case 1 ->
+                            lletradni = 'R';
+                        case 2 ->
+                            lletradni = 'W';
+                        case 3 ->
+                            lletradni = 'A';
+                        case 4 ->
+                            lletradni = 'G';
+                        case 5 ->
+                            lletradni = 'M';
+                        case 6 ->
+                            lletradni = 'Y';
+                        case 7 ->
+                            lletradni = 'F';
+                        case 8 ->
+                            lletradni = 'P';
+                        case 9 ->
+                            lletradni = 'D';
+                        case 10 ->
+                            lletradni = 'X';
+                        case 11 ->
+                            lletradni = 'B';
+                        case 12 ->
+                            lletradni = 'N';
+                        case 13 ->
+                            lletradni = 'J';
+                        case 14 ->
+                            lletradni = 'Z';
+                        case 15 ->
+                            lletradni = 'S';
+                        case 16 ->
+                            lletradni = 'Q';
+                        case 17 ->
+                            lletradni = 'V';
+                        case 18 ->
+                            lletradni = 'H';
+                        case 19 ->
+                            lletradni = 'L';
+                        case 20 ->
+                            lletradni = 'C';
+                        case 21 ->
+                            lletradni = 'K';
+                        case 22 ->
+                            lletradni = 'E';
+
+                    }
+
+                    System.out.println("La lletra corresponent pel DNI " + dni + " és " + lletradni);
+
+                    break;
+
+                case 24:
+
+                    System.out.println("Has triat mirar si un nombre és capicua");
+                    System.out.println("Introdueix un nombre");
+                    int numero24;
+                    int unidades,
+                     decenas,
+                     centenas,
+                     millares;
+
+                    numero24 = sc.nextInt();
+
+                    if (numero24 >= 0 && numero24 < 10) {
+                        System.out.println("El nombre és capicua");
+
+                    } else if (numero24 >= 10 && numero24 < 100) {
+                        decenas = (int) numero24 / 10;
+                        unidades = numero24 % 10;
+                        if (unidades == decenas) {
+                            System.out.println("El nombre és capicua");
+                        } else {
+                            System.out.println("El nombre no és capicua");
+                        }
+
+                    } else if (numero24 >= 100 && numero24 < 1000) {
+                        centenas = (int) numero24 / 100;
+                        decenas = numero24 % 100;
+                        unidades = decenas % 10;
+                        if (unidades == centenas) {
+                            System.out.println("El nombre és capicua");
+                        } else {
+                            System.out.println("El nombre no és capicua");
+                        }
+
+                    } else if (numero24 >= 1000 && numero24 < 10000) {
+                        millares = (int) numero24 / 1000;
+                        centenas = numero24 % 1000;
+                        decenas = centenas % 100;
+                        centenas = (int) centenas / 100;
+                        unidades = decenas % 10;
+                        decenas = (int) decenas / 10;
+                        if (unidades == millares && decenas == centenas) {
+                            System.out.println("El nombre és capicua");
+                        } else {
+                            System.out.println("El nombre no és capicua");
+                        }
+                    } else {
+                        System.out.println("Entrada incorrecta");
+                    }
+                    break;
+
+                case 25:
+
+                    System.out.println("Has triat mirar si el valor és parell, positiu i el seu quadrat");
+
+                    //Primer comentari de l'script :O, com estic vago ho faig tot en una sola línea.
+                    boolean end25 = false;
+
+                    int opcio25;
+
+                    while (!end25) {
+
+                        opcio25 = sc.nextInt();
+
+                        if (opcio25 != 0) {
+
+                            System.out.println((opcio25 % 2 == 0 ? "El valor és parell, " : "El valor és senar, ")
+                                    + (opcio25 > 0 ? "positiu" : "negatiu") + " i el seu quadrat és "
+                                    + Math.pow(opcio25, 2));
+                        } else {
+                            end25 = true;
+                        }
+
+                    }
+
+                    break;
+
+                case 26:
+
+                    System.out.println("Has triat mirar l'edat total, edat mitja, nombre d'alumnes i nombre d'alumnes adults");
+
+                    int edat = sc.nextInt();
+
+                    int edattotal = 0;
+                    int totalalumnes = 0;
+                    int totalalumnesadults = 0;
+
+                    while (edat >= 0) {
+
+                        edattotal += edat;
+                        totalalumnes++;
+
+                        totalalumnesadults += edat >= 18 ? 1 : 0;
+                        edat = sc.nextInt();
+
+                    }
+
+                    System.out.println("La suma total de les edats és " + edattotal + ", la mitja d'edats és " + ((float) edattotal / (float) totalalumnes)
+                            + ", el total d'alumnes és " + totalalumnes + " i el total d'alumnes aduts " + "és " + totalalumnesadults);
+
+                    break;
+
+                case 27:
+
+                    System.out.println("Trobar el nombre secret entre 1 i 100");
+
+                    int numSecret = (int) (Math.random() * 100 + 1);
+                    int nombre27;
+
+                    System.out.println("Introdueix un nombre");
+                    nombre27 = sc.nextInt();
+
+                    while (nombre27 != numSecret) {
+
+                        if (nombre27 > numSecret) {
+                            System.out.println("El nombre secret és menor.");
+                        } else {
+                            System.out.println("El nombre secret és major");
+                        }
+                        System.out.println("Introdueix un nombre");
+                        nombre27 = sc.nextInt();
+                    }
+
+                    System.out.println("HAS ENCERTAT EL NOMBRE SECRET!!!");
+
+                    break;
+
+                case 28:
+
+                    System.out.println("Has triat aprendrer a comptar");
+
+                    System.out.println("Introdueix el nombre final");
+                    int nombrefinal = sc.nextInt();
+
+                    for (int i = 1; i <= nombrefinal; i++) {
+
+                        System.out.println(i);
+                    }
+
+                    break;
+
+                case 29:
+
+                    System.out.println("Has triat mostrar els múltiples de 7 menors de 100");
+
+                    for (int i = 7; i < 100; i += 7) {
+
+                        System.out.println(i);
+                    }
+
+                    break;
+
+                case 30:
+
+                    System.out.println("Introdueix 10 nombres sencers");
+
+                    float mitja30 = 0;
+
+                    for (int i = 0; i < 10; i++) {
+
+                        mitja30 += sc.nextFloat();
+
+                    }
+
+                    System.out.println("La mitja és " + mitja30 / 10);
+
+                    break;
+
+                case 31:
+                    System.out.println("Has triat calcular el factorial d'un nombre.");
+                    System.out.println("Introdueix un nombre.");
+                    int factorial = sc.nextInt();
+
+                    for (int i = factorial - 1; i > 1; i--) {
+
+                        factorial *= i;
+                    }
+
+                    System.out.println("El factorial del nombre és " + factorial);
+
+                    break;
+
+                case 32:
+
+                    System.out.println("Has triat calcular les estadístiques de les notes d'una classe");
+
+                    System.out.println("Introdueix el nombre d'alumnes");
+
+                    int alumnes = sc.nextInt();
+                    float nota32;
+                    float mitja = 0;
+                    int aprovats = 0;
+
+                    for (int i = 0; i < alumnes; i++) {
+
+                        System.out.println("Introdueix la nota de l'alumnes");
+                        nota32 = sc.nextFloat();
+                        aprovats += nota32 >= 5 ? 1 : 0;
+                        mitja += nota32;
+
+                    }
+
+                    System.out.println("El nombre d'aprovats és " + aprovats + ", el nombre de suspesos és " + (alumnes - aprovats) + " i la mitja de les notes és "
+                            + mitja / alumnes);
+
+                    break;
+
+                case 33:
+
+                    System.out.println("Heu triat mostrar totes les taules de l'1 al 10");
+
+                    for (int i = 1; i <= 10; i++) {
+
+                        for (int j = 1; j <= 10; j++) {
+
+                            System.out.println("El valor de " + i + " x " + "j = " + i * j);
+
+                        }
+
+                    }
+
+                    break;
+
+                case 34:
+
+                    System.out.println("Has triat introduïr el valor Eco n vegades");
+
+                    System.out.println("Introdueix el nombre de vegades que apareixerà Eco");
+
+                    int ecoVegades = sc.nextInt();
+
+                    for (int i = 0; i < ecoVegades; i++) {
+
+                        eco();
+
+                    }
+
+                    break;
+
+                case 35:
+
+                    System.out.println("Has triat mostrar tots els nombres entre dos sencers de major a menor");
+                    System.out.println("Introdueix el primer nombre");
+                    int valor135 = sc.nextInt();
+                    System.out.println("Introdueix el segon nombre");
+                    int valor235 = sc.nextInt();
+
+                    ordenarnombres(valor135, valor235);
+
+                    break;
+
+                case 36:
+
+                    System.out.println("Has triat calcular l'àrea o el volum d'un cilindre");
+
+                    System.out.println("Tria que vols calcular l'àrea (1) o el volum (2)");
+
+                    int opcio36 = sc.nextInt();
+
+                    System.out.println("Introdueix el valor del radi de la base");
+
+                    int radi36 = sc.nextInt();
+
+                    System.out.println("Introdueix el valor de l'altura");
+
+                    int altura36 = sc.nextInt();
+
+                
+                    calcular(radi36, altura36, opcio36);
+                
+                        
                     break;
 
                 case 0:
